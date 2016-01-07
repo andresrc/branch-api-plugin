@@ -29,6 +29,7 @@ import hudson.model.AbstractDescribableImpl;
 import hudson.model.Descriptor;
 import jenkins.scm.api.SCMSource;
 import jenkins.scm.api.SCMSourceDescriptor;
+import org.jenkinsci.tools.bce.AcceptBinaryIncompatibleChange;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import java.util.List;
@@ -68,7 +69,8 @@ public class BranchSource extends AbstractDescribableImpl<BranchSource> {
      *
      * @return the source.
      */
-    public SCMSource getSource() {
+    @AcceptBinaryIncompatibleChange("I know")
+    protected SCMSource getSource() {
         return source;
     }
 
